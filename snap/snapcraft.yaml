@@ -12,3 +12,6 @@ apps:
   slow-snap:
     command: python3 -c "import sys"
 
+parts:
+  launcher:
+    plugin: nil
