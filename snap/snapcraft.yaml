@@ -1,0 +1,14 @@
+name: slow-snap
+version: git
+summary: A slow snap
+description: |
+  very slow
+
+grade: stable
+confinement: strict
+base: core18
+
+apps:
+  slow-snap:
+    command: python3 -c "import sys"
+
