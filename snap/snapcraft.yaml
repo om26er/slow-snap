@@ -8,10 +8,20 @@ grade: stable
 confinement: strict
 base: core18
 
+environment:
+  PYTHONPATH: PYTHONPATH:$SNAP_COMMON/deskconnd-runtime-dir
+
 apps:
   slow-snap:
-    command: python3 -c "import sys"
+    command: python3 -c "import os; import argparse; from autobahn.twisted.component import run"
 
 parts:
   launcher:
     plugin: nil
+
+plugs:
+  deskconnd-runtime-dir:
+    content: executables
+    default-provider: deskconnd:runtime-dir
+    interface: content
+    target: $SNAP_COMMON/deskconnd-runtime-dir
